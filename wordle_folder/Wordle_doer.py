@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 """
 Created on Thu Nov  9 10:37:34 2023
 
@@ -28,7 +26,7 @@ def convert_keys(word, driver):
         driver.find_element(By.CSS_SELECTOR, f'button[data-key="{char}"]').click()
     driver.find_element(By.CSS_SELECTOR, 'button[aria-label="enter"]').click()
 
-
+#this function inputs the word into the wordle webstite
 def update_keys(driver, guess_num):
     hint = [' '] * 5
     # Find all rows
@@ -50,7 +48,7 @@ def update_keys(driver, guess_num):
 
 
 
-
+#filters out the words from the words list
 def filter_words(words, hint, previousWord):
 
     #filter out the words only from the words list
@@ -85,7 +83,7 @@ def filter_words(words, hint, previousWord):
 
     return words
 
-
+#updates the frequency list
 def update_frequency(words, freq):
     freq = [(word, count) for (word, count) in freq if word in words]
     return freq
@@ -111,8 +109,8 @@ def main():
 
     driver = webdriver.Chrome(service=Service(), options=options)
     hint = []
+    
     #open text file with every 5 letter word
-
     with open('cleaned_frequency.csv', 'r') as w:
         words = w.read().splitlines()
         words = [tuple(line.split(',')) for line in words]
