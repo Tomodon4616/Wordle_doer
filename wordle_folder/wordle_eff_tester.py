@@ -2,8 +2,13 @@ import Wordle_doer as wd
 import random as r
 import matplotlib.pyplot as plt
 
+"""
+Created on Wed May 21 17:15:11 2025
 
+@author: tomvija
+"""
 
+#a new function to create a hint from the guess
 def make_hint(guess, correct_word):
     hint = ['r', 'r', 'r', 'r', 'r']
     temp_correct_word = list(correct_word)
@@ -24,7 +29,7 @@ def make_hint(guess, correct_word):
     return hint
 
 
-
+#takes in a number of iterations and an initial guess and perfrom an efficiency analasys, printing out various quantitative statistics.
 def eff_tester(num_iter, init_guess):
 
     #open file
@@ -92,6 +97,6 @@ def eff_tester(num_iter, init_guess):
     plt.xticks(range(1, 7))
     plt.show()
 
-    
+#example run of 100 iterations with the starting word "salet"
 eff_tester(1000, 'salet')
 
